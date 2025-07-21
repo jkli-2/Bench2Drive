@@ -1,10 +1,10 @@
 #!/bin/bash
 # Must set CARLA_ROOT
-export CARLA_ROOT=YOUR_CARLA_PATH
+export CARLA_ROOT=/home/ste/Documents/carla
 export CARLA_SERVER=${CARLA_ROOT}/CarlaUE4.sh
 export PYTHONPATH=$PYTHONPATH:${CARLA_ROOT}/PythonAPI
 export PYTHONPATH=$PYTHONPATH:${CARLA_ROOT}/PythonAPI/carla
-export PYTHONPATH=$PYTHONPATH:$CARLA_ROOT/PythonAPI/carla/dist/carla-0.9.15-py3.7-linux-x86_64.egg
+# export PYTHONPATH=$PYTHONPATH:$CARLA_ROOT/PythonAPI/carla/dist/carla-0.9.15-py3.7-linux-x86_64.egg
 export PYTHONPATH=$PYTHONPATH:leaderboard
 export PYTHONPATH=$PYTHONPATH:leaderboard/team_code
 export PYTHONPATH=$PYTHONPATH:scenario_runner
@@ -28,7 +28,7 @@ export TEAM_CONFIG=$6
 export CHECKPOINT_ENDPOINT=$7
 export SAVE_PATH=$8
 
-CUDA_VISIBLE_DEVICES=${GPU_RANK} python ${LEADERBOARD_ROOT}/leaderboard/leaderboard_evaluator.py \
+CUDA_VISIBLE_DEVICES=${GPU_RANK} poetry run python ${LEADERBOARD_ROOT}/leaderboard/leaderboard_evaluator.py \
 --routes=${ROUTES} \
 --repetitions=${REPETITIONS} \
 --track=${CHALLENGE_TRACK_CODENAME} \
